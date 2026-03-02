@@ -31,6 +31,7 @@ def Sell():
     global virtualTokenReserves
     global virtualSolReserves
     global sol_out_raw
+    global Sol_value
     
     amount =  float(input("TOKEN AMOUNT: "))
     print("****************************************")   
@@ -48,14 +49,16 @@ def Sell():
     new_token_reserve = virtualTokenReserves + tokens_in_raw
     new_sol_reserve = virtualSolReserves - sol_out_raw
     
+    Sol_value = amount * pptinsol
     price_in_sol = new_sol_reserve / new_token_reserve
     usdmktcap = price_in_sol * 10**6 * sol
+    
 
     
     return tokens_in_raw 
 
 
-sol = 88.03 #Change to current price of Solana if you want to simulate real-time
+sol = 84.70 #Change to current price of Solana if you want to simulate real-time
 virtualTokenReserves = 1073000000000000
 virtualSolReserves = 30000000000
 
@@ -89,6 +92,7 @@ while Simulator == True:
         virtualSolReserves -= sol_out_raw
         smart_contract()
         print(f"MKT CAP: {usdmktcap:.0f}")
+        print(f"Sol: {Sol_value:.2f}")
         print("****************************************")
         print("****************************************")
     elif choice == "4":
