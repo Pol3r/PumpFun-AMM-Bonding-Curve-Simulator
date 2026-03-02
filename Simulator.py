@@ -58,7 +58,7 @@ def Sell():
     return tokens_in_raw 
 
 
-sol = 84.70 #Change to current price of Solana if you want to simulate real-time
+sol = 86.80 #Change to current price of Solana if you want to simulate real-time
 virtualTokenReserves = 1073000000000000
 virtualSolReserves = 30000000000
 
